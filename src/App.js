@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Book from './Book';
+import books from './bookDetails';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <section className="bookList">
+            {books.map((book) => {
+                return <Book key={book.id} book={book} />;
+
+                // return <Book key={book.id} {...book} />;
+                //! i can also use spread operator like this , it means to select all the properties from this object.
+                // if I use spread operator then i don't need to define props.object_name, i can use only props
+            })}
+        </section>
+    );
 }
 
 export default App;
